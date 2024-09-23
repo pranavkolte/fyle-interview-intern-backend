@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  server:
+    build: .
+    ports:
+      - "7755:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - GUNICORN_CMD_ARGS=--bind=0.0.0.0:5000
