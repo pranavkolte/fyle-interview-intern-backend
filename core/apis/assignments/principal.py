@@ -6,6 +6,9 @@ from core import db
 from core.apis import decorators
 from core.apis.responses import APIResponse
 from core.models.assignments import Assignment
+from core.libs.exceptions import FyleError
+
+from sqlalchemy.exc import SQLAlchemyError
 
 from .schema import AssignmentSchema, AssignmentGradeSchema
 from ..decorators import AuthPrincipal
@@ -41,6 +44,14 @@ def grade_or_regrade_assignments(auth_principal: AuthPrincipal, incoming_payload
         auth_principal=auth_principal,
     )
 
-    db.session.commit()
+    try:
+        db.session.commit()
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        raise FyleError(status_code=500, message=f"A database error occurred while grading the assignment.\n{str(e)}")
+    except Exception as e:
+        db.session.rollback()
+        raise FyleError(status_code=500, message=f"Unknown error {str(e)}")
+
     serialized_graded_assignment: List[Dict] = AssignmentSchema().dump(graded_assignment)
     return APIResponse.respond(data=serialized_graded_assignment)
