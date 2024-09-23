@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "39cee823-6cbc-4267-99fb-73272f25d908",
+		"name": "Fyle-assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36565132"
+	},
+	"item": [
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "/student/assignments  --new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":2, \"student_id\":2}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"some text\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7755/student/assignments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"student",
+								"assignments"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://127.0.0.1:7755/student/assignments\" \\\r\n  -H \"X-Principal: {\\\"user_id\\\":2, \\\"student_id\\\":2}\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n        \"content\": \"some text\"\r\n      }'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "student/assignments  --edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":2, \"student_id\":2}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 23,\n    \"content\": \"some updated text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7755/student/assignments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"student",
+								"assignments"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://127.0.0.1:7755/student/assignments\" \\\n  -H \"X-Principal: {\\\"user_id\\\":2, \\\"student_id\\\":2}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"id\": 5,\n        \"content\": \"some updated text\"\n      }'"
+					},
+					"response": []
+				},
+				{
+					"name": "/student/assignments/submit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":1, \"student_id\":2}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 23,\r\n    \"teacher_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7755/student/assignments/submit",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"student",
+								"assignments",
+								"submit"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://127.0.0.1:7755/student/assignments/submit\" \\\r\n  -H \"X-Principal: {\\\"user_id\\\":1, \\\"student_id\\\":1}\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n        \"id\": 2,\r\n        \"teacher_id\": 2\r\n      }'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/student/assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":1, \"student_id\":1}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:7755/student/assignments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"student",
+								"assignments"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://your-api-endpoint.com\" \\\n  -H \"X-Principal: {\\\"user_id\\\":1, \\\"student_id\\\":1}\" \\\n  -H \"Content-Type: application/json\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "principal",
+			"item": [
+				{
+					"name": "/principal/assignments/grade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":5, \"principal_id\":1}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"grade\": \"B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7755/principal/assignments/grade",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"principal",
+								"assignments",
+								"grade"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:7755/principal/assignments/grade \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"X-Principal: {\\\"user_id\\\":5, \\\"principal_id\\\":1}\" \\\r\n-d '{\r\n    \"id\": 1,\r\n    \"grade\": \"A\"\r\n}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/principal/teachers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":2, \"principal_id\":1}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:7755/principal/teachers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"principal",
+								"teachers"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:7755/principal/teachers \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"X-Principal: {\\\"user_id\\\":5, \\\"principal_id\\\":1}\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/principal/assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":5, \"principal_id\":1}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:7755/principal/assignments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"principal",
+								"assignments"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:7755/principal/assignments \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"X-Principal: {\\\"user_id\\\":5, \\\"principal_id\\\":1}\"\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teacher",
+			"item": [
+				{
+					"name": "/teacher/assignments/grade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":3, \"teacher_id\":2}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 23,\r\n    \"grade\": \"A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7755/teacher/assignments/grade",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"teacher",
+								"assignments",
+								"grade"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:7755/teacher/assignments/grade \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"X-Principal: {\\\"user_id\\\":3, \\\"teacher_id\\\":1}\" \\\r\n-d '{\r\n    \"id\": 1,\r\n    \"grade\": \"A\"\r\n}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/teacher/assignments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Principal",
+								"value": "{\"user_id\":3, \"teacher_id\":2}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:7755/teacher/assignments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7755",
+							"path": [
+								"teacher",
+								"assignments"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:7755/teacher/assignments \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"X-Principal: {\\\"user_id\\\":3, \\\"teacher_id\\\":1}\"\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:7755/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7755",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
